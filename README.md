@@ -1,216 +1,136 @@
-# Análise Exploratória de Dados - Titanic
+# Titanic - Análise Exploratória de Dados
 
-![Sobrevivência Geral](reports/figures/sobrevivencia_geral.png)
-
-## Sobre o projeto
-
-Este projeto consiste em uma Análise Exploratória de Dados (EDA) utilizando o conjunto de dados do Titanic. O objetivo é investigar quais características dos passageiros estiveram associadas à sobrevivência durante o naufrágio, por meio de análises estatísticas e visualizações.
-
-Ao longo do projeto, foram realizadas etapas de limpeza e tratamento dos dados, criação de novas variáveis (engenharia de features) e análises exploratórias para identificar padrões relacionados à sobrevivência dos passageiros. Todo o processo foi organizado de forma modular, facilitando a manutenção do código e a reprodutibilidade da análise.
-
----
-
-## Dataset
-
-Foi utilizado o conjunto de dados **Titanic**, amplamente empregado em estudos de Ciência de Dados e Machine Learning.
-
-O dataset contém informações dos passageiros, como:
-
-- Sexo;
-- Idade;
-- Classe do passageiro;
-- Valor da tarifa;
-- Porto de embarque;
-- Quantidade de familiares;
-- Situação de sobrevivência.
-
----
+O projeto utiliza os dados de passageiros do Titanic para investigar padrões relacionados à sobrevivência e entender como características como sexo, classe, idade e tamanho da família se relacionam com esse resultado.
 
 ## Objetivo
 
-Este projeto busca responder às seguintes questões:
+Identificar os principais fatores associados à sobrevivência dos passageiros por meio de análise exploratória, estatística descritiva e visualização de dados.
 
-- Identificar fatores associados à sobrevivência;
-- Compreender o perfil dos sobreviventes.
+A análise busca identificar **associações**, não estabelecer relações de causalidade.
 
----
+## Perguntas de Análise
 
-## Tecnologias utilizadas
+* Qual foi a taxa geral de sobrevivência?
+* Como a sobrevivência varia entre homens e mulheres?
+* Qual a relação entre classe e sobrevivência?
+* Como a idade está relacionada à sobrevivência?
+* Passageiros acompanhados tiveram maior sobrevivência?
+* Existe relação entre valor da tarifa e sobrevivência?
+* Como diferentes características combinadas ajudam a explicar os padrões encontrados?
 
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
-![Matplotlib](https://img.shields.io/badge/Matplotlib-11557C?style=for-the-badge)
-![Seaborn](https://img.shields.io/badge/Seaborn-4C72B0?style=for-the-badge)
-![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white)
+## Dados
 
----
+Dataset público do **Titanic: Machine Learning from Disaster**, disponibilizado pelo Kaggle.
 
-## Estrutura do projeto
+* **891 passageiros**
+* Granularidade: um registro por passageiro
+* Variável principal: `Survived`
+* Principais características analisadas: sexo, idade, classe, tarifa, porto de embarque e informações familiares.
 
-O projeto foi organizado em módulos para separar as etapas de limpeza, engenharia de atributos, cálculo de métricas e visualização dos dados, facilitando a manutenção e a reutilização do código.
+## Metodologia
+
+### Preparação dos dados
+
+* Inspeção da estrutura e dos tipos de dados
+* Identificação e tratamento de valores ausentes
+* Remoção de informações que não seriam utilizadas na análise
+* Criação de variáveis relacionadas à idade e ao tamanho da família
+
+### Análise
+
+Foram utilizadas estatísticas descritivas e análises comparativas para investigar a relação entre as características dos passageiros e a variável de sobrevivência.
+
+A **taxa de sobrevivência** foi utilizada como principal métrica.
+
+### Visualização
+
+Os resultados foram explorados por meio de gráficos utilizando Matplotlib e Seaborn, facilitando a identificação de padrões e diferenças entre os grupos.
+
+## Principais Insights
+
+### Sexo
+
+A taxa de sobrevivência das mulheres foi superior a 70%, enquanto a dos homens ficou próxima de 20%.
+
+**Interpretação:** sexo apresenta uma forte associação com a sobrevivência no conjunto analisado.
+
+### Classe
+
+Passageiros da primeira classe apresentaram taxa de sobrevivência superior a 60%, enquanto na terceira classe o valor ficou próximo de 25%.
+
+**Interpretação:** a classe do passageiro apresenta uma associação relevante com a sobrevivência.
+
+### Idade
+
+A sobrevivência apresentou tendência de queda conforme a idade aumentou, com crianças apresentando taxas superiores às observadas em grupos mais velhos.
+
+### Tamanho da família
+
+Passageiros que viajavam em grupos familiares pequenos, especialmente entre 2 e 4 pessoas, apresentaram melhores taxas de sobrevivência. Passageiros sozinhos e famílias muito grandes apresentaram taxas menores.
+
+**Interpretação:** a relação entre tamanho da família e sobrevivência não é linear.
+
+### Tarifa
+
+Passageiros que pagaram tarifas mais altas apresentaram maiores taxas de sobrevivência, resultado consistente com a diferença de classes.
+
+## Limitações
+
+* Os dados representam um único evento histórico.
+* As análises são observacionais e indicam associações, não causalidade.
+* Existem valores ausentes em algumas variáveis.
+* Algumas características possuem forte relação entre si, como classe e tarifa.
+* A análise exploratória não controla simultaneamente todos os fatores.
+
+## Conclusão
+
+A análise identificou diferenças relevantes na sobrevivência de acordo com características como **sexo, classe, idade, tamanho da família e tarifa**.
+
+Entre os padrões observados, sexo e classe apresentaram algumas das diferenças mais expressivas nas taxas de sobrevivência.
+
+O projeto demonstra a aplicação de Python para **limpeza, transformação, análise exploratória, estatística descritiva e visualização de dados**.
+
+## Ferramentas
+
+* Python
+* Pandas
+* NumPy
+* Matplotlib
+* Seaborn
+* Jupyter Notebook
+
+## Estrutura
 
 ```text
-Titanic/
+Titanic_Eda/
+│
 ├── data/
 │   ├── raw/
-│   │   └── train.csv
 │   └── processed/
-│       └── train_limpo.csv
 │
 ├── notebooks/
 │   └── analise.ipynb
 │
 ├── reports/
 │   └── figures/
-│       ├── sobrevivencia_geral.png
-│       ├── sobrevivencia_genero.png
-│       ├── sobrevivencia_classe.png
-│       ├── sobrevivencia_classe_genero.png
-│       ├── sobrevivencia_faixa_etaria.png
-│       ├── sobrevivencia_tamanho_familia.png
-│       └── sobrevivencia_valor_tarifa.png
 │
 ├── src/
 │   ├── cleaning.py
 │   ├── features.py
 │   ├── statistics.py
-│   ├── visualization.py
-│   └── __init__.py
+│   └── visualization.py
 │
 ├── .gitignore
 ├── README.md
 └── requirements.txt
 ```
 
----
-
-## Etapas da análise
-
-O projeto foi desenvolvido seguindo um fluxo estruturado de análise exploratória de dados, composto pelas seguintes etapas:
-
-1. Definição do problema;
-2. Importação das bibliotecas;
-3. Leitura dos dados;
-4. Exploração inicial dos dados;
-5. Limpeza e tratamento dos dados;
-6. Engenharia de features;
-7. Análise exploratória dos dados (EDA);
-8. Conclusões.
-
----
-
-## Principais resultados
-
-A análise exploratória identificou alguns padrões associados à sobrevivência dos passageiros.
-
-### Sobrevivência por gênero
-
-![Sobrevivência por gênero](reports/figures/sobrevivencia_genero.png)
-
-Mulheres apresentaram taxa de sobrevivência superior a **70%**, enquanto entre os homens a taxa ficou próxima de **20%**, indicando uma forte associação entre gênero e sobrevivência.
-
----
-
-### Sobrevivência por classe
-
-![Sobrevivência por classe](reports/figures/sobrevivencia_classe.png)
-
-Passageiros da **1ª classe** apresentaram taxa de sobrevivência superior a **60%**, enquanto na **3ª classe** a taxa ficou próxima de **25%**, indicando uma forte associação entre classe e sobrevivência.
-
----
-
-### Sobrevivência por faixa etária
-
-![Sobrevivência por faixa etária](reports/figures/sobrevivencia_faixa_etaria.png)
-
-Foi observada uma tendência de redução da taxa de sobrevivência conforme a idade aumentava. As crianças apresentaram a maior taxa de sobrevivência entre todas as faixas etárias.
-
----
-
-### Sobrevivência por tamanho da família
-
-![Sobrevivência por tamanho da família](reports/figures/sobrevivencia_tamanho_familia.png)
-
-Famílias compostas por **2 a 4 pessoas** apresentaram as maiores taxas de sobrevivência, enquanto passageiros que viajavam sozinhos ou em famílias muito grandes apresentaram taxas menores.
-
----
-
-### Sobrevivência por valor da tarifa
-
-![Sobrevivência por valor da tarifa](reports/figures/sobrevivencia_valor_tarifa.png)
-
-Foi observada uma tendência contínua de aumento da taxa de sobrevivência conforme aumentava o valor pago na tarifa, resultado consistente com a análise por classe.
-
----
-
-## Como executar
-
-1. Clone este repositório:
+## Como Executar
 
 ```bash
-git clone https://github.com/CarlosAlexandreOM/Titanic.git
-```
-
-2. Acesse a pasta do projeto:
-
-```bash
-cd Titanic
-```
-
-3. Crie e ative um ambiente virtual (opcional, mas recomendado).
-
-### Windows
-
-```bash
-python -m venv .venv
-.venv\Scripts\activate
-```
-
-### Linux/macOS
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-```
-
-4. Instale as dependências:
-
-```bash
+git clone https://github.com/CarlosAlexandreOM/Titanic_Eda.git
+cd Titanic_Eda
 pip install -r requirements.txt
 ```
 
-5. Abra o notebook:
-
-```text
-notebooks/analise.ipynb
-```
-
-ou execute:
-
-```bash
-jupyter notebook
-```
-
-e abra o arquivo `analise.ipynb`.
-
-> **Observação:** O conjunto de dados original está disponível em `data/raw/train.csv`. O arquivo `data/processed/train_limpo.csv` corresponde à versão tratada utilizada durante a análise.
-
----
-
-## Próximos passos
-
-Como possíveis evoluções deste projeto:
-
-- Desenvolver modelos preditivos de Machine Learning;
-- Criar dashboards interativos para exploração dos resultados;
-- Automatizar o pipeline de preparação dos dados;
-- Aplicar a mesma metodologia em outros conjuntos de dados reais.
-
----
-
-## Autor
-
-Desenvolvido por **Carlos Alexandre** como parte do meu portfólio de projetos em Ciência e Análise de Dados.
-
-- GitHub: https://github.com/CarlosAlexandreOM
-- LinkedIn: https://www.linkedin.com/in/carlosalexandreoliveiramello
+Depois, execute o notebook localizado em `notebooks/analise.ipynb`.
