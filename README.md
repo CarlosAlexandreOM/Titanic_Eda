@@ -94,7 +94,6 @@ O projeto demonstra a aplicação de Python para **limpeza, transformação, an�
 
 * Python
 * Pandas
-* NumPy
 * Matplotlib
 * Seaborn
 * Jupyter Notebook
