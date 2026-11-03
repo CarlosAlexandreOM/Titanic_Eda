@@ -134,18 +134,48 @@ Titanic_Eda/
 └── requirements.txt
 ```
 
+<<<<<<< HEAD
 ## 10. Como Executar
 
 Clone o repositório e instale as dependências:
+=======
+## Instalação
+
+Clone o repositório:
+>>>>>>> fc0071a (docs: adiciona ambiente conda e atualiza o readme)
 
 ```bash
 git clone https://github.com/CarlosAlexandreOM/Titanic_Eda.git
-cd Titanic_Eda
-pip install -r requirements.txt
 ```
 
+<<<<<<< HEAD
 Depois, abra e execute o notebook localizado em:
 
 ```text
 notebooks/analise.ipynb
 ```
+=======
+Acesse a pasta do projeto:
+
+```bash
+cd Titanic_Eda
+```
+
+Crie o ambiente Conda a partir do arquivo `environment.yml`:
+
+```bash
+conda env create -f environment.yml
+```
+
+Ative o ambiente:
+
+```bash
+conda activate titanic_eda
+```
+
+## Como executar
+
+Abra o notebook localizado em `notebooks/analise.ipynb` utilizando uma ferramenta compatível com Jupyter, como o VS Code ou JupyterLab.
+
+Certifique-se de selecionar o ambiente Conda `titanic_eda` como kernel do notebook antes de executar as células.
+>>>>>>> fc0071a (docs: adiciona ambiente conda e atualiza o readme)
